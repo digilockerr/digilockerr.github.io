@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiLocker: Digital Empowerment. Anytime, Anywhere.</title>
+    <meta name="keywords" content="digilocker, digilocker login, digilocker app">
+    <meta name="description" content="DigiLocker is a flagship initiative of the Ministry of Electronics & IT (MeitY), Government of India, under the Digital India program. It is a secure, cloud-based platform designed to provide citizens with a Digital Document Wallet.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Tailwind Configuration for DigiLocker look and feel */
+        :root {
+            --dl-blue: #007bff; /* Primary Blue */
+            --dl-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        .text-dl-blue { color: var(--dl-blue); }
+        .bg-dl-blue { background-color: var(--dl-blue); }
+        .border-dl-blue { border-color: var(--dl-blue); }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .stat-card {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+    <!-- Load Inter font (simulated since we can't link Google Fonts directly, but set the family above) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter bg-gray-50">
+
+    <!-- ****** HEADER & NAVIGATION ****** -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Brand -->
+                <a href="#" class="flex items-center space-x-2" onclick="navigate('home')">
+                    <!-- DigiLocker Logo Placeholder -->
+                    <svg class="w-8 h-8 text-dl-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                        <path d="M16 2L12 7"></path>
+                        <path d="M8 2L12 7"></path>
+                        <path d="M12 12h.01"></path>
+                        <path d="M12 16h.01"></path>
+                    </svg>
+                    <span class="text-2xl font-extrabold text-gray-800">DigiLocker</span>
+                    <span class="text-xs font-semibold text-gray-500 hidden sm:inline-block pt-1">Digital India</span>
+                </a>
+
+                <!-- Navigation Links (Desktop) -->
+                <nav class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                    <a href="#" class="hover:text-dl-blue transition duration-150" onclick="navigate('home')">Home</a>
+                    <a href="#" class="hover:text-dl-blue transition duration-150" onclick="navigate('about')">About Us</a>
+                    <a href="#" class="hover:text-dl-blue transition duration-150" onclick="navigate('contact')">Contact Us</a>
+                </nav>
+
+                <!-- Sign In/Up Buttons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Added href and target="_blank" for the Sign In link -->
+                    <a href="https://digilocker.app" target="_blank" class="text-dl-blue font-semibold hover:bg-dl-blue/10 px-4 py-2 rounded-lg transition duration-200">
+                        Sign In
+                    </a>
+                    <!-- Changed button to anchor tag and added href and target="_blank" for the Sign Up link -->
+                    <a href="https://digilocker.app" target="_blank" class="bg-dl-blue text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-200 hidden sm:inline-block">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ****** MAIN APPLICATION CONTAINER ****** -->
+    <div id="app" class="min-h-[80vh]">
+        <!-- Content will be rendered here by JavaScript -->
+    </div>
+
+    <!-- ****** FOOTER ****** -->
+    <footer class="bg-gray-800 text-white pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 border-b border-gray-700 pb-8">
+                <!-- Column 1: Brand & Mission -->
+                <div>
+                    <h4 class="text-xl font-extrabold text-dl-blue mb-3">DigiLocker</h4>
+                    <p class="text-sm text-gray-400">
+                        An initiative under Digital India, dedicated to paperless governance and citizen empowerment.
+                    </p>
+                    <div class="mt-4 flex space-x-3">
+                        <!-- Social Icons (Placeholders) -->
+                        <a href="#" class="text-gray-400 hover:text-dl-blue transition duration-150">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-dl-blue transition duration-150">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-dl-blue transition duration-150">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-dl-blue transition duration-150">Privacy Policy</a></li>
+                        <li><a href="#" onclick="navigate('contact')" class="hover:text-dl-blue transition duration-150">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Partner Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Partner Info</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-dl-blue transition duration-150">Issuer Directory</a></li>
+                        <li><a href="#" class="hover:text-dl-blue transition duration-150">Requester Guidelines</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Mobile App -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Download App</h4>
+                    <p class="text-sm text-gray-400 mb-3">Access your documents on the go.</p>
+                    <div class="space-y-2">
+                        <!-- Play Store Placeholder -->
+                        <a href="#" class="bg-black text-white p-2 rounded-lg flex items-center justify-center hover:opacity-80 transition duration-150">
+                            <span class="font-bold">Google Play</span>
+                        </a>
+                        <!-- App Store Placeholder -->
+                        <a href="#" class="bg-black text-white p-2 rounded-lg flex items-center justify-center hover:opacity-80 transition duration-150">
+                            <span class="font-bold">App Store</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright and Government Info -->
+            <div class="text-center pt-6 text-sm text-gray-400">
+                <p>Copyright © 2025, Website maintained by National eGovernance Division (NeGD).</p>
+                <p>Powered by Digital India Corporation (DIC) & Ministry of Electronics & IT (MeitY), Government of India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const app = document.getElementById('app');
+
+        const homeView = () => `
+            <!-- HERO SECTION -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Left Content -->
+                    <div class="space-y-6">
+                        <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900">
+                            <span class="text-dl-blue">Digital Empowerment.</span><br>
+                            Authentic Documents.
+                        </h1>
+                        <p class="text-xl text-gray-600">
+                            Your secure cloud-based document wallet for issuance, storage, sharing, and verification of digital documents and certificates. Paperless governance starts here.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 pt-4">
+                            <!-- Converted button to anchor tag with link and target="_blank" -->
+                            <a href="https://digilocker.app" target="_blank" class="flex items-center justify-center bg-dl-blue text-white font-bold text-lg px-8 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-[1.02]">
+                                Get Started Now
+                            </a>
+                            <!-- Converted button to anchor tag with link and target="_blank" -->
+                            <a href="https://digilocker.app" target="_blank" class="flex items-center justify-center bg-white text-dl-blue border-2 border-dl-blue font-bold text-lg px-8 py-3 rounded-xl hover:bg-blue-50 transition duration-300">
+                                Explore Documents
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Image/Mockup -->
+                    <div class="hidden md:block">
+                        <div class="bg-white p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,123,255,0.2)] border-t-8 border-dl-blue">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center text-gray-800">
+                                <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-8M12 3v5M21 13h-5M3 13h5M18 5L15 8M6 19L9 16"></path></svg>
+                                Issued Documents Dashboard
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center bg-gray-100 p-3 rounded-lg">
+                                    <span class="font-medium text-gray-700">Aadhaar Card</span>
+                                    <span class="text-xs font-mono bg-green-100 text-green-700 px-2 py-1 rounded-full">VERIFIED</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-gray-100 p-3 rounded-lg">
+                                    <span class="font-medium text-gray-700">Driving License</span>
+                                    <span class="text-xs font-mono bg-green-100 text-green-700 px-2 py-1 rounded-full">VERIFIED</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-gray-100 p-3 rounded-lg">
+                                    <span class="font-medium text-gray-700">Class X Marksheet (CBSE)</span>
+                                    <span class="text-xs font-mono bg-green-100 text-green-700 px-2 py-1 rounded-full">VERIFIED</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-gray-100 p-3 rounded-lg">
+                                    <span class="font-medium text-gray-700">Vehicle RC (MH-01...)</span>
+                                    <span class="text-xs font-mono bg-green-100 text-green-700 px-2 py-1 rounded-full">VERIFIED</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-4 text-center">All documents are machine-readable and digitally signed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATS SECTION -->
+            <div class="bg-dl-blue py-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-white text-center">
+                        <div class="border-r border-blue-400/50 sm:last:border-r-0">
+                            <p class="text-4xl sm:text-5xl font-extrabold">37 Crore+</p>
+                            <p class="text-xl sm:text-2xl font-medium mt-1">Registered Users</p>
+                        </div>
+                        <div class="border-r border-blue-400/50 sm:last:border-r-0">
+                            <p class="text-4xl sm:text-5xl font-extrabold">776 Crore+</p>
+                            <p class="text-xl sm:text-2xl font-medium mt-1">Issued Documents</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl sm:text-5xl font-extrabold">2,300+</p>
+                            <p class="text-xl sm:text-2xl font-medium mt-1">Total Issuers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VALUE PROPOSITION / FEATURES SECTION -->
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-12">
+                        Why DigiLocker is Your Trusted Digital Wallet
+                    </h2>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Feature 1: Authentic & Verifiable -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-dl-blue/80 transform hover:shadow-xl transition duration-300">
+                            <div class="text-dl-blue mb-4"><svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.5l-5-5 5-5M17.5 12l-5 5-5-5M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"></path></svg></div>
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Authentic & Legally Valid</h3>
+                            <p class="text-gray-600">Documents fetched are digitally signed by the Issuer, carrying the same legal validity as the original physical documents under the IT Act, 2000.</p>
+                        </div>
+
+                        <!-- Feature 2: Consent-Driven Sharing -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-dl-blue/80 transform hover:shadow-xl transition duration-300">
+                            <div class="text-dl-blue mb-4"><svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c-3.31 0-6 2.69-6 6h12c0-3.31-2.69-6-6-6zM12 12V3"></path><path d="M12 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path></svg></div>
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Secure & Private</h3>
+                            <p class="text-gray-600">Data sharing is strictly **consent-driven** via OAuth 2.0. You control who views your documents, and all data is protected by multi-layered encryption.</p>
+                        </div>
+
+                        <!-- Feature 3: Paperless Workflow -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-dl-blue/80 transform hover:shadow-xl transition duration-300">
+                            <div class="text-dl-blue mb-4"><svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Anytime, Anywhere Access</h3>
+                            <p class="text-gray-600">Access your important documents instantly via the web portal or mobile app, eliminating the need to carry physical copies for verification.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- HOW IT WORKS SECTION -->
+            <section class="py-16 bg-gray-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-12">
+                        How DigiLocker Works: The Secure Exchange
+                    </h2>
+                    <div class="grid md:grid-cols-4 gap-8">
+                        
+                        <!-- Step 1 -->
+                        <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md stat-card">
+                            <div class="bg-dl-blue text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">1</div>
+                            <h3 class="font-bold text-lg mb-2">Issuer Integration</h3>
+                            <p class="text-gray-600 text-sm">Government agencies (Issuers) integrate their databases to push authentic e-documents into the DigiLocker cloud.</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md stat-card">
+                            <div class="bg-dl-blue text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">2</div>
+                            <h3 class="font-bold text-lg mb-2">Citizen Fetch/Link</h3>
+                            <p class="text-gray-600 text-sm">You (the Citizen) link your Aadhaar/other credentials to query and fetch your verified documents into your personal Locker.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md stat-card">
+                            <div class="bg-dl-blue text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">3</div>
+                            <h3 class="font-bold text-lg mb-2">Consent to Share</h3>
+                            <p class="text-gray-600 text-sm">When a third-party (Requester) needs a document, you grant explicit, one-time consent via the DigiLocker app/web portal.</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md stat-card">
+                            <div class="bg-dl-blue text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">4</div>
+                            <h3 class="font-bold text-lg mb-2">Real-Time Verification</h3>
+                            <p class="text-gray-600 text-sm">The Requester instantly verifies the document against the original source via the secure DigiLocker API, eliminating fraud.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KEY DOCUMENTS SECTION -->
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-10">
+                        Instantly Access Major Documents
+                    </h2>
+                    <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+                        Pull your documents directly from verified government sources with just a few clicks.
+                    </p>
+
+                    <div class="grid grid-cols-2 md:grid-cols-6 gap-6">
+                        <!-- Document Card: Aadhaar -->
+                        <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 cursor-pointer border-2 border-transparent hover:border-dl-blue">
+                            <img src="https://placehold.co/60x60/f0f9ff/007bff?text=UID" alt="Aadhaar" class="mb-3 rounded-full">
+                            <p class="text-sm font-semibold text-center text-gray-700">Aadhaar Card</p>
+                        </div>
+
+                        <!-- Document Card: DL -->
+                        <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 cursor-pointer border-2 border-transparent hover:border-dl-blue">
+                            <img src="https://placehold.co/60x60/f0f9ff/007bff?text=DL" alt="Driving License" class="mb-3 rounded-full">
+                            <p class="text-sm font-semibold text-center text-gray-700">Driving License</p>
+                        </div>
+
+                        <!-- Document Card: RC -->
+                        <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 cursor-pointer border-2 border-transparent hover:border-dl-blue">
+                            <img src="https://placehold.co/60x60/f0f9ff/007bff?text=RC" alt="Vehicle RC" class="mb-3 rounded-full">
+                            <p class="text-sm font-semibold text-center text-gray-700">Vehicle RC</p>
+                        </div>
+
+                        <!-- Document Card: CBSE -->
+                        <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 cursor-pointer border-2 border-transparent hover:border-dl-blue">
+                            <img src="https://placehold.co/60x60/f0f9ff/007bff?text=Edu" alt="Education" class="mb-3 rounded-full">
+                            <p class="text-sm font-semibold text-center text-gray-700">Academic Docs</p>
+                        </div>
+
+                        <!-- Document Card: PAN -->
+                        <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 cursor-pointer border-2 border-transparent hover:border-dl-blue">
+                            <img src="https://placehold.co/60x60/f0f9ff/007bff?text=PAN" alt="PAN" class="mb-3 rounded-full">
+                            <p class="text-sm font-semibold text-center text-gray-700">PAN Verification</p>
+                        </div>
+
+                        <!-- Document Card: Health -->
+                        <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 cursor-pointer border-2 border-transparent hover:border-dl-blue">
+                            <img src="https://placehold.co/60x60/f0f9ff/007bff?text=ABHA" alt="Health" class="mb-3 rounded-full">
+                            <p class="text-sm font-semibold text-center text-gray-700">Health Records</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `;
+
+        const aboutView = () => `
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <h1 class="text-4xl font-extrabold text-gray-900 mb-6 border-b-4 border-dl-blue/50 pb-2">About DigiLocker</h1>
+                <p class="text-lg text-gray-700 mb-8">
+                    DigiLocker is a flagship initiative under the <span class="font-semibold text-dl-blue">Digital India</span> program, aimed at providing citizens with a secure cloud-based platform for issuance, storage, sharing, and verification of e-documents and certificates.
+                </p>
+
+                <div class="space-y-10">
+                    <!-- Mission -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-dl-blue">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3 flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-dl-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5l-9-5.25v-10.5l9-5.25 9 5.25v10.5z"></path><path d="M3.27 6.75l8.73 5.04 8.73-5.04"></path><path d="M12 21.5V12.06"></path></svg>
+                            Our Mission & Vision
+                        </h2>
+                        <p class="text-gray-600">
+                            Our vision is to realize 'Digital Empowerment' by ensuring citizens have seamless and secure access to authentic digital documents in their digital document wallet. This eliminates the need for physical documents, simplifies processes, and promotes efficiency in service delivery across all government departments and institutions. DigiLocker was officially launched in <span class="font-medium">July 2015</span>.
+                        </p>
+                    </div>
+
+                    <!-- Security and Legal Backing -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-dl-blue">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3 flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-dl-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Security and Compliance
+                        </h2>
+                        <p class="text-gray-600 mb-4">
+                            DigiLocker is built on a robust architecture compliant with <span class="font-medium">ISO 27001:2022</span> standards. Key features include:
+                        </p>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-2 text-sm">
+                            <li>Digital Signatures and Time-Stamping for document integrity.</li>
+                            <li>PKI-based Certificates for end-to-end transaction security.</li>
+                            <li><span class="font-medium">OAuth 2.0</span> Authorization Framework for consent-driven data sharing.</li>
+                            <li>Documents are legally valid under the <span class="font-medium">Information Technology Act, 2000</span>.</li>
+                            <li>Implementation of <span class="font-medium">Secret Hash Authentication</span> for secure API exchange.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Usage Statistics Snapshot -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-dl-blue">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3 flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-dl-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M18 20V4M6 20v-4"></path></svg>
+                            Impact Snapshot (as of late 2024)
+                        </h2>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                            <li><strong>37 Crore+</strong> Users have registered their accounts.</li>
+                            <li><strong>776 Crore+</strong> Documents have been issued through the platform.</li>
+                            <li>Used by over <strong>2,300 Issuers</strong>, including CBSE, UIDAI, Income Tax Department, and various State Transport Departments.</li>
+                            <li>Supports document verification for sectors like Education, Transport, Banking, and Health.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const contactView = () => `
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <h1 class="text-4xl font-extrabold text-gray-900 mb-6 border-b-4 border-dl-blue/50 pb-2">Contact DigiLocker Support</h1>
+                <p class="text-lg text-gray-700 mb-10">
+                    For technical support, partnerships, or general inquiries about the DigiLocker platform, please use the channels below.
+                </p>
+
+                <div class="space-y-8">
+                    
+                    <!-- Support Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-dl-blue">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3 flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-dl-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.95M1 5l4 4 4-4"></path></svg>
+                            General & Technical Support
+                        </h2>
+                        <div class="space-y-3 text-gray-600">
+                            <p>
+                                <strong>FAQ Portal:</strong> We highly recommend checking our comprehensive FAQ section first for common issues.
+                                <a href="#" class="text-dl-blue font-medium hover:underline block mt-1">Visit FAQ Page &rarr;</a>
+                            </p>
+                            <p>
+                                <strong>Email Support:</strong> For direct technical queries regarding document issues or account access:
+                                <span class="font-mono bg-gray-100 p-1 rounded-md block mt-1">support@digilocker.gov.in</span>
+                            </p>
+                            <p>
+                                <strong>Feedback:</strong> Share your suggestions to improve the platform:
+                                <span class="font-mono bg-gray-100 p-1 rounded-md block mt-1">feedback@digilocker.gov.in</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Physical Address Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-dl-blue">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3 flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-dl-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Office Address
+                        </h2>
+                        <address class="text-gray-600 not-italic space-y-1">
+                            <p class="font-medium">National e-Governance Division (NeGD)</p>
+                            <p>Ministry of Electronics & IT (MeitY)</p>
+                            <p>4th Floor, Electronics Niketan,</p>
+                            <p>6, CGO Complex, Lodhi Road, New Delhi - 110003, India.</p>
+                        </address>
+                    </div>
+
+                </div>
+            </div>
+        `;
+
+        /**
+         * Simple client-side router for navigation
+         * @param {string} viewName - The name of the view to render ('home', 'about', 'contact').
+         */
+        function navigate(viewName) {
+            let content = '';
+            switch (viewName) {
+                case 'home':
+                    content = homeView();
+                    break;
+                case 'about':
+                    content = aboutView();
+                    break;
+                case 'contact':
+                    content = contactView();
+                    break;
+                default:
+                    content = homeView();
+            }
+            app.innerHTML = content;
+            window.scrollTo(0, 0); // Scroll to top on view change
+        }
+
+        // Initialize the app with the home view
+        window.onload = () => {
+            navigate('home');
+        };
+    </script>
+
+</body>
+</html>
